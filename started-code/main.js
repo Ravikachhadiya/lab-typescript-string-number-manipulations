@@ -1,7 +1,9 @@
-import {stringManipulationService,NumberManipulationService} from "./main-service";
-
-class StringManipulations implements stringManipulationService{
-    print(word: String): void {
+"use strict";
+exports.__esModule = true;
+var StringManipulations = /** @class */ (function () {
+    function StringManipulations() {
+    }
+    StringManipulations.prototype.print = function (word) {
         console.log("Word is : " + word);
         console.log("UPPER CASE : " + word.toUpperCase());
         console.log("lower case : " + word.toLowerCase());
@@ -9,57 +11,54 @@ class StringManipulations implements stringManipulationService{
         console.log("concat : " + word.concat(" superb"));
         console.log("Slice : " + word.slice(1, -2));
         console.log("Length : " + word.length);
-    }
-
-    printWithSpace(sentence: string): void{
+    };
+    StringManipulations.prototype.printWithSpace = function (sentence) {
         console.log("Split : " + sentence.split("").join(" "));
-    }
-
-    findVowel(str: string): void {
-        let cnt: number = 0;
-        for (let i: number = 0; i < str.length; i++){
+    };
+    StringManipulations.prototype.findVowel = function (str) {
+        var cnt = 0;
+        for (var i = 0; i < str.length; i++) {
             if (str[i] == "a" || str[i] == "e" || str[i] == "i"
                 || str[i] == "o" || str[i] == "u" || str[i] == "A"
                 || str[i] == "E" || str[i] == "I" || str[i] == "O"
-                || str[i] == "U")
-            {
+                || str[i] == "U") {
                 cnt++;
             }
         }
         console.log(cnt + " vowel is in the " + str);
+    };
+    return StringManipulations;
+}());
+var NumbersManipulations = /** @class */ (function () {
+    function NumbersManipulations() {
     }
-}
-
-class NumbersManipulations implements NumberManipulationService{
-    findPrime(num: number): void{
-        let check: boolean = true;
+    NumbersManipulations.prototype.findPrime = function (num) {
+        var check = true;
         if (num < 2)
             console.log(num + " is not prime number.");
         else
-            for (let i: number = 2; i < Math.sqrt(num); i++){
+            for (var i = 2; i < Math.sqrt(num); i++) {
                 if (num % i === 0) {
                     console.log(num + " is not prime number.");
                     check = false;
                     break;
-                }   
+                }
             }
         if (check)
-            console.log(num + " is not prime number.");  
-    }
-
-    findMagic(num: number): void{
+            console.log(num + " is not prime number.");
+    };
+    NumbersManipulations.prototype.findMagic = function (num) {
         if (num % 9 === 1)
             console.log(num + " is magic number.");
         else
             console.log(num + " is not magic number.");
-    }
-}
-
-let obj = new StringManipulations();
+    };
+    return NumbersManipulations;
+}());
+var obj = new StringManipulations();
 obj.print("Ravi");
 obj.printWithSpace("FACEPrep ProGrad");
 obj.findVowel("Information Technology");
-
-let numobj = new NumbersManipulations();
+var numobj = new NumbersManipulations();
 numobj.findPrime(512);
 numobj.findMagic(50311);
